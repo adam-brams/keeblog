@@ -15,11 +15,37 @@ public class KeyboardBuild {
     private Long id;
 
     private String name;
-    private String description;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @Enumerated(EnumType.STRING)
+    private PlateMaterial plateMaterial;
 
-    @Column(name = "sound_test_url")
-    private String soundTestUrl;
+    private boolean plateHasFlexCuts;
+
+    @Enumerated(EnumType.STRING)
+    private PcbThickness pcbThickness;
+
+    private boolean pcbHasFlexCuts;
+
+    private String switches;
+
+    @Enumerated(EnumType.STRING)
+    private LubeType switchLube;
+
+    @Embedded
+    private SwitchSpring switchSprings;
+
+    @Enumerated(EnumType.STRING)
+    private LubeType SpringLube;
+
+    @Enumerated(EnumType.STRING)
+    private SwitchFilm switchFilms;
+
+    private String stabilizers;
+
+    @Enumerated(EnumType.STRING)
+    private LubeType stabilizerLube;
+
+    private String keycapSet;
+
+    private String artisanKeycaps;
 }
