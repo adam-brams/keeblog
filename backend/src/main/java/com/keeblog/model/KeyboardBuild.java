@@ -1,5 +1,9 @@
 package com.keeblog.model;
 
+import com.keeblog.enums.LubeType;
+import com.keeblog.enums.PcbThickness;
+import com.keeblog.enums.PlateMaterial;
+import com.keeblog.enums.SwitchFilm;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,17 +31,17 @@ public class KeyboardBuild {
     private String keyboardName;
 
     @Column(nullable = false)
-    private boolean isPlateless;
+    private Boolean isPlateless;
 
     @Enumerated(EnumType.STRING)
     private PlateMaterial plateMaterial;
 
-    private boolean plateHasFlexCuts;
+    private Boolean plateHasFlexCuts;
 
     @Enumerated(EnumType.STRING)
     private PcbThickness pcbThickness;
 
-    private boolean pcbHasFlexCuts;
+    private Boolean pcbHasFlexCuts;
 
     @Column(nullable = false)
     private String switches;

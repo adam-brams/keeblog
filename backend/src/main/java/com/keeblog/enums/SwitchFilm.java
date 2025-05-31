@@ -1,4 +1,4 @@
-package com.keeblog.model;
+package com.keeblog.enums;
 
 public enum SwitchFilm {
     NONE,

@@ -1,5 +1,6 @@
 package com.keeblog.model;
 
+import com.keeblog.enums.LubeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Enumerated;

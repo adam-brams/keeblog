@@ -4,7 +4,7 @@ import com.keeblog.dto.AuthResponse;
 import com.keeblog.dto.AuthRequest;
 import com.keeblog.dto.RegisterRequest;
 import com.keeblog.model.User;
-import com.keeblog.model.Role;
+import com.keeblog.enums.Role;
 import com.keeblog.repository.UserRepository;
 import com.keeblog.security.JwtService;
 import lombok.RequiredArgsConstructor;

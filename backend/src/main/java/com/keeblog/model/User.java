@@ -1,6 +1,7 @@
 package com.keeblog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.keeblog.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
