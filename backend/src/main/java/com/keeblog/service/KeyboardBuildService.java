@@ -12,7 +12,9 @@ import com.keeblog.model.User;
 import com.keeblog.repository.KeyboardBuildRepository;
 import com.keeblog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +28,7 @@ public class KeyboardBuildService {
 
     public KeyboardBuildResponse createBuild(KeyboardBuildRequest request, Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
         KeyboardBuild build = KeyboardBuildMapper.toEntity(request);
         build.setAuthor(user);

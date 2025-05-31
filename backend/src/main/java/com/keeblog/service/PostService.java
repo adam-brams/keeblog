@@ -10,7 +10,9 @@ import com.keeblog.repository.KeyboardBuildRepository;
 import com.keeblog.repository.PostRepository;
 import com.keeblog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,10 +27,10 @@ public class PostService {
 
     public PostResponse createPost(PostRequest request, Long userId) {
         User author = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
         KeyboardBuild keyboardBuild = keyboardBuildRepository.findById(request.getKeyboardBuildId())
-                .orElseThrow(() -> new RuntimeException("KeyboardBuild not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Keyboard build not found"));
 
         Post post = PostMapper.toEntity(request);
         post.setAuthor(author);
