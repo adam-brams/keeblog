@@ -19,11 +19,18 @@ public class Post {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
+    @Column(nullable = false)
     private String title;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "keyboard_build_id", nullable = false)
+    private KeyboardBuild keyboardBuild;
+
+
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostImage> images = new ArrayList<>();

@@ -2,6 +2,8 @@ package com.keeblog.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Column;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +19,8 @@ public class SwitchSpring {
 
     @Column(name = "spring_length")
     private float length; // millimeters
+
+    @Enumerated(EnumType.STRING)
+    private LubeType springLube;
 
 }

@@ -20,6 +20,7 @@ public class PostImage {
     @JoinColumn(name = "post_id")
     private Post post;
 
+    @Column(nullable = false)
     private String imageUrl;
     private Integer imageOrder;
 }
