@@ -2,13 +2,15 @@ package com.keeblog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "users")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
@@ -25,5 +27,11 @@ public class User {
     @Column(nullable = false)
     @JsonIgnore
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    @JsonIgnore
+    private Role role;
+
 
 }
