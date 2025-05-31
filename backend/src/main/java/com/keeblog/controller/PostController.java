@@ -4,6 +4,7 @@ import com.keeblog.dto.PostRequest;
 import com.keeblog.dto.PostResponse;
 import com.keeblog.security.CurrentUserProvider;
 import com.keeblog.service.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class PostController {
     private final CurrentUserProvider currentUserProvider;
 
     @PostMapping
-    public ResponseEntity<PostResponse> createPost(@RequestBody PostRequest request) {
+    public ResponseEntity<PostResponse> createPost(@Valid @RequestBody PostRequest request) {
         Long userId = currentUserProvider.getCurrentUser().getId();
         PostResponse response = postService.createPost(request, userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
