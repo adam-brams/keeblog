@@ -24,5 +24,6 @@ public class PostImage {
 
     @Column(nullable = false)
     private String imageUrl;
+
     private Integer imageOrder;
 }
